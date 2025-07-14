@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chronomètre Sport</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="icons/icon-192.png" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#667eea" />
+  
+
+</head>
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js")
+      .then(() => console.log("Service Worker enregistré"))
+      .catch((err) => console.error("Erreur SW:", err));
+  }
+</script>
+
+<body>
+
+  <h1>Chronomètre Sport</h1>
+
+  <label>Temps exercice (sec) : 
+    <input type="number" id="exerciseTime" value="45" min="1" />
+  </label><br/>
+
+  <label>Temps repos (sec) : 
+    <input type="number" id="restTime" value="15" min="1" />
+  </label><br/>
+
+  <label>Nombre de séries : 
+    <input type="number" id="sets" value="3" min="1" />
+  </label><br/>
+
+  <div id="phase">Prêt ?</div>
+  <div id="timer">00:00</div>
+
+  <button id="startBtn">Démarrer</button>
+  <button id="pauseBtn" disabled>Pause</button>
+  <button id="resetBtn" disabled>Réinitialiser</button>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
